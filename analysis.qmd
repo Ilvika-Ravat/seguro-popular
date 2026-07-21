@@ -2,5 +2,29 @@
 title: "Seguro Popular"
 author: Ilvika
 format: html
+execute:
+  echo: false
 ---
 
+```{r}
+#| message: false 
+library(tidyverse)
+library(primer.data)
+```
+
+```{r}
+x |> count(treatment)
+```
+
+
+```{r}
+predictions(fit_sp)
+```
+
+```{r}
+plot_predictions(fit_sp, condition = "treatment")
+draw = FALSE
+plot_predictions()
+```
+
+Many people want to see if the Seguro Popular program mitigates financial debt and stress. To do this, we are using the data from The King et al. paper (“Public policy for the poor? A randomised assessment of the Mexican universal health insurance program,” The Lancet 373, 2009), to determine the causal effect of the Seguro Popular program nn a household’s three-month out-of-pocket health spending. One possible weakness in our model is that the data was from years 2005 and 2006, meaning nowadays this might be different because of factors like inflation. We used a linear regression since the problem is continuous. The estimates might be wrong because of family size. The estimates may also be wrong, because of differences in household income. Lastly, the estimates might be wrong, because of variation in other expenses.
